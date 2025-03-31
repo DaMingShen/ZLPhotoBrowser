@@ -120,10 +120,10 @@ func isRTL() -> Bool {
 }
 
 func showAlertView(_ message: String, _ sender: UIViewController?) {
-    ZLMainAsync {
-        let action = ZLCustomAlertAction(title: localLanguageTextValue(.ok), style: .default, handler: nil)
-        showAlertController(title: nil, message: message, style: .alert, actions: [action], sender: sender)
-    }
+//    ZLMainAsync {
+//        let action = ZLCustomAlertAction(title: localLanguageTextValue(.ok), style: .default, handler: nil)
+//        showAlertController(title: nil, message: message, style: .alert, actions: [action], sender: sender)
+//    }
 }
 
 func showAlertController(title: String?, message: String?, style: ZLCustomAlertStyle, actions: [ZLCustomAlertAction], sender: UIViewController?) {
