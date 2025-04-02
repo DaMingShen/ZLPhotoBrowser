@@ -124,6 +124,15 @@ func showAlertView(_ message: String, _ sender: UIViewController?) {
 //        let action = ZLCustomAlertAction(title: localLanguageTextValue(.ok), style: .default, handler: nil)
 //        showAlertController(title: nil, message: message, style: .alert, actions: [action], sender: sender)
 //    }
+    ZLMainAsync {
+        let config = ZLPhotoConfiguration.default()
+        if config.showAlertBlock != nil, let showAlertBlock = config.showAlertBlock {
+            showAlertBlock(message, sender!)
+        } else {
+            let action = ZLCustomAlertAction(title: localLanguageTextValue(.ok), style: .default, handler: nil)
+            showAlertController(title: nil, message: message, style: .alert, actions: [action], sender: sender)
+        }
+    }
 }
 
 func showAlertController(title: String?, message: String?, style: ZLCustomAlertStyle, actions: [ZLCustomAlertAction], sender: UIViewController?) {
